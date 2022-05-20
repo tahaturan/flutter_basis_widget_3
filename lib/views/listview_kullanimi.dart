@@ -15,16 +15,13 @@ class ListViewKullanimi extends StatelessWidget {
       appBar: AppBar(
         title: const Text("ListView Kullanimi"),
       ),
-      body: ListView.builder(
-        itemBuilder: (BuildContext context, int index) {
+      body: ListView.separated(
+        itemBuilder: (context, index) {
           var oankiOgrenci = tumOgrenciler[index];
           return Card(
-            color: index % 2 == 0 ? Colors.amber[200] : Colors.blue[200],
-            shadowColor: index % 2 == 0 ? Colors.blue[200] : Colors.amber[200],
-            elevation: 12,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
+            color: index % 2 == 0 ? Colors.green[300] : Colors.cyan[200],
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             child: ListTile(
               title: Text(oankiOgrenci.isim),
               subtitle: Text(oankiOgrenci.soyIsim),
@@ -34,8 +31,40 @@ class ListViewKullanimi extends StatelessWidget {
             ),
           );
         },
+        separatorBuilder: (context, index) {
+          return const Divider(
+            color: Colors.blueGrey,
+            thickness: 2,
+            indent: 50,
+            endIndent: 50,
+          );
+        },
         itemCount: tumOgrenciler.length,
       ),
+    );
+  }
+
+  ListView listviewBuilder() {
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int index) {
+        var oankiOgrenci = tumOgrenciler[index];
+        return Card(
+          color: index % 2 == 0 ? Colors.amber[200] : Colors.blue[200],
+          shadowColor: index % 2 == 0 ? Colors.blue[200] : Colors.amber[200],
+          elevation: 12,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: ListTile(
+            title: Text(oankiOgrenci.isim),
+            subtitle: Text(oankiOgrenci.soyIsim),
+            leading: CircleAvatar(
+              child: Text(oankiOgrenci.id.toString()),
+            ),
+          ),
+        );
+      },
+      itemCount: tumOgrenciler.length,
     );
   }
 
