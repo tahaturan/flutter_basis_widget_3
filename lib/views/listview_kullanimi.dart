@@ -15,19 +15,43 @@ class ListViewKullanimi extends StatelessWidget {
       appBar: AppBar(
         title: const Text("ListView Kullanimi"),
       ),
-      body: ListView(
-        children: tumOgrenciler
-            .map(
-              (Ogrenci ogr) => ListTile(
-                title: Text(ogr.isim),
-                subtitle: Text(ogr.soyIsim),
-                leading: CircleAvatar(
-                  child: Text(ogr.id.toString()),
-                ),
+      body: ListView.builder(
+        itemBuilder: (BuildContext context, int index) {
+          var oankiOgrenci = tumOgrenciler[index];
+          return Card(
+            color: index % 2 == 0 ? Colors.amber[200] : Colors.blue[200],
+            shadowColor: index % 2 == 0 ? Colors.blue[200] : Colors.amber[200],
+            elevation: 12,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: ListTile(
+              title: Text(oankiOgrenci.isim),
+              subtitle: Text(oankiOgrenci.soyIsim),
+              leading: CircleAvatar(
+                child: Text(oankiOgrenci.id.toString()),
               ),
-            )
-            .toList(),
+            ),
+          );
+        },
+        itemCount: tumOgrenciler.length,
       ),
+    );
+  }
+
+  ListView klasikListView() {
+    return ListView(
+      children: tumOgrenciler
+          .map(
+            (Ogrenci ogr) => ListTile(
+              title: Text(ogr.isim),
+              subtitle: Text(ogr.soyIsim),
+              leading: CircleAvatar(
+                child: Text(ogr.id.toString()),
+              ),
+            ),
+          )
+          .toList(),
     );
   }
 }
