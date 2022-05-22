@@ -30,9 +30,13 @@ class ListViewKullanimi extends StatelessWidget {
                 child: Text(oankiOgrenci.id.toString()),
               ),
               onTap: () {
-                EasyLoading.showInfo(
+                EasyLoading.showToast(
                   "Eleman Tiklandi",
+                  toastPosition: EasyLoadingToastPosition.bottom,
                 );
+              },
+              onLongPress: () {
+                _alertDialogIslemleri(context, oankiOgrenci.isim);
               },
             ),
           );
@@ -97,4 +101,33 @@ class Ogrenci {
   final String soyIsim;
 
   Ogrenci(this.id, this.isim, this.soyIsim);
+}
+
+void _alertDialogIslemleri(BuildContext myContext, String name) {
+  showDialog(
+      context: myContext,
+      builder: (contex) {
+        return AlertDialog(
+          title: Text(name),
+          content: const Text("Icerik"),
+          actions: [
+            ButtonBar(
+              children: [
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Kapat",
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Tamam",
+                  ),
+                ),
+              ],
+            )
+          ],
+        );
+      });
 }
