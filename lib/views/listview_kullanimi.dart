@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class ListViewKullanimi extends StatelessWidget {
   ListViewKullanimi({Key? key}) : super(key: key);
@@ -28,6 +29,11 @@ class ListViewKullanimi extends StatelessWidget {
               leading: CircleAvatar(
                 child: Text(oankiOgrenci.id.toString()),
               ),
+              onTap: () {
+                EasyLoading.showInfo(
+                  "Eleman Tiklandi",
+                );
+              },
             ),
           );
         },
