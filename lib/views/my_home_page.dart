@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basis_widget_3/views/card_listtile.dart';
+import 'package:flutter_basis_widget_3/views/gridview_kullanimi.dart';
 import 'package:flutter_basis_widget_3/views/listview_kullanimi.dart';
 import 'package:flutter_basis_widget_3/widgets/sayfa_gecis_button.dart';
 
@@ -25,6 +26,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   sayfa: const CardveListtileKullanimi()),
               SayfaGecisButton(
                   isim: "ListView Kullanimi", sayfa: ListViewKullanimi()),
+              SayfaGecisButton(
+                  isim: "GridView Kullanimi", sayfa: const GridviewKullanimi()),
             ],
           ),
         ));

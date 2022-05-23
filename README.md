@@ -10,3 +10,7 @@
 #### Paket Kullanimi toast
 <img src="assets/images/paketKullanimi.gif" height="300">
 
+#### GridView Kullanimi
+<img src="assets/images/gridview.gif" height="300">
+
+
