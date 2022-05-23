@@ -15,20 +15,32 @@ class GridviewKullanimi extends StatelessWidget {
         ),
         itemCount: 100,
         itemBuilder: (BuildContext context, int index) {
-          return Container(
-            margin: const EdgeInsets.all(20),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.deepOrange[100 * ((index + 1) % 8)],
-              gradient: const LinearGradient(
-                colors: [Colors.green, Colors.red],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
+          return GestureDetector(
+            //*widgetlara tiklanilma etkilesime gecme ozelligi verir
+            child: Container(
+              margin: const EdgeInsets.all(20),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.deepOrange[100 * ((index + 1) % 8)],
+                gradient: const LinearGradient(
+                  colors: [Colors.green, Colors.red],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                ),
+              ),
+              child: const FlutterLogo(
+                size: 100,
               ),
             ),
-            child: const FlutterLogo(
-              size: 100,
-            ),
+            onTap: () {
+              debugPrint("$index e Tek Tiklama Yapildi");
+            },
+            onLongPress: () {
+              debugPrint("$index e Uzun Tiklama Yapildi");
+            },
+            onDoubleTap: () {
+              debugPrint("$index e cift tiklanildi");
+            },
           );
         },
       ),
