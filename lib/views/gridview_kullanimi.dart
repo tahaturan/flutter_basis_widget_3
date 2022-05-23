@@ -11,14 +11,24 @@ class GridviewKullanimi extends StatelessWidget {
       ),
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 4,
+          crossAxisCount: 2,
         ),
         itemCount: 100,
         itemBuilder: (BuildContext context, int index) {
           return Container(
+            margin: const EdgeInsets.all(20),
             alignment: Alignment.center,
-            color: Colors.blue[100 * ((index + 1) % 5)],
-            child: Text(index.toString()),
+            decoration: BoxDecoration(
+              color: Colors.deepOrange[100 * ((index + 1) % 8)],
+              gradient: const LinearGradient(
+                colors: [Colors.green, Colors.red],
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
+              ),
+            ),
+            child: const FlutterLogo(
+              size: 100,
+            ),
           );
         },
       ),
