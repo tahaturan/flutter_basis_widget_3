@@ -13,4 +13,8 @@
 #### GridView Kullanimi
 <img src="assets/images/gridview.gif" height="300">
 
+#### SliverList Kullanimlari
+<img src="assets/images/sliverlist.gif" height="300">
+
+
 
