@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class CustomScrollandSlivers extends StatelessWidget {
@@ -8,22 +10,48 @@ class CustomScrollandSlivers extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         SliverAppBar(
-          title: const Text("Sliver App bar Baslik"),
           backgroundColor: Colors.blueGrey,
           expandedHeight: 300,
           floating: true,
+          pinned: true,
+          snap: false,
           flexibleSpace: FlexibleSpaceBar(
+            title: const Text("Sliver App Bar"),
+            centerTitle: true,
             background: Image.network(
               "https://fotolifeakademi.com/uploads/2020/04/manzara-ve-doga-fotografciligi.jpg",
               fit: BoxFit.cover,
             ),
           ),
         ),
-        SliverList(
-          delegate: SliverChildListDelegate(
-            sabitListeElamanlari,
+        SliverPadding(
+          padding: const EdgeInsets.all(4),
+          sliver: SliverList(
+            delegate: SliverChildListDelegate(
+              sabitListeElamanlari,
+            ),
           ),
         ),
+        SliverPadding(
+          padding: const EdgeInsets.only(top: 5),
+          sliver: SliverList(
+            delegate: SliverChildBuilderDelegate(
+              _dinamikElemanUretenFonksiyon,
+              childCount: 6,
+            ),
+          ),
+        ),
+        SliverFixedExtentList(
+          delegate: SliverChildListDelegate(sabitListeElamanlari),
+          itemExtent: 300,
+        ),
+        SliverFixedExtentList(
+          delegate: SliverChildBuilderDelegate(
+            _dinamikElemanUretenFonksiyon,
+            childCount: 10,
+          ),
+          itemExtent: 200,
+        )
       ],
     );
   }
@@ -86,4 +114,25 @@ class CustomScrollandSlivers extends StatelessWidget {
       ),
     ];
   }
+
+  Widget? _dinamikElemanUretenFonksiyon(BuildContext context, int index) {
+    return Container(
+      height: 100,
+      color: rastgeleRenk(),
+      alignment: Alignment.center,
+      child: Text(
+        "Dinamik Liste Elemani ${index + 1}",
+        style: const TextStyle(fontSize: 15),
+      ),
+    );
+  }
+}
+
+Color rastgeleRenk() {
+  return Color.fromARGB(
+    Random().nextInt(255),
+    Random().nextInt(255),
+    Random().nextInt(255),
+    Random().nextInt(255),
+  );
 }
