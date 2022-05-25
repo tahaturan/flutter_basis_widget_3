@@ -32,6 +32,14 @@ class CustomScrollandSlivers extends StatelessWidget {
             ),
           ),
         ),
+        //* sabit elemanlarla bir satirda kac eleman olcagini soyledigimiz grid turu
+        SliverGrid(
+          delegate: SliverChildListDelegate(sabitListeElamanlari),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 5,
+          ),
+        ),
         SliverPadding(
           padding: const EdgeInsets.only(top: 5),
           sliver: SliverList(
@@ -51,6 +59,34 @@ class CustomScrollandSlivers extends StatelessWidget {
             childCount: 10,
           ),
           itemExtent: 200,
+        ),
+        //* dinamik elemanlarla yani kac eleman utereceksek sayisini belirtip ayni zamanda bir satirda kac elemean olacagini belittirigmiz grid turu
+        SliverGrid(
+          delegate: SliverChildBuilderDelegate(
+            _dinamikElemanUretenFonksiyon,
+            childCount: 10,
+          ),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+          ),
+        ),
+        SliverGrid(
+          delegate: SliverChildBuilderDelegate(
+            _dinamikElemanUretenFonksiyon,
+            childCount: 12,
+          ),
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 200, //*max genislik belirttik
+          ),
+        ),
+        //*SliverGrid in birde isimlendirilmis constructorlari vardir yani yukarida islemleri direk kisa haldeden yapabiliriz
+        SliverGrid.count(
+          crossAxisCount: 3,
+          children: sabitListeElamanlari,
+        ),
+        SliverGrid.extent(
+          maxCrossAxisExtent: 300,
+          children: sabitListeElamanlari,
         )
       ],
     );
