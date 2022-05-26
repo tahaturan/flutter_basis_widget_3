@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basis_widget_3/views/card_listtile.dart';
 import 'package:flutter_basis_widget_3/views/custom_scroll_ve_slivers.dart';
@@ -32,6 +33,19 @@ class _MyHomePageState extends State<MyHomePage> {
               SayfaGecisButton(
                   isim: "Custom Sctoll & Slivers",
                   sayfa: const CustomScrollandSlivers()),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => const CustomScrollandSlivers(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  "IOS icin Gecis Butonu",
+                ),
+              ),
             ],
           ),
         ));
