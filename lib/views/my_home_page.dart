@@ -66,10 +66,18 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, "redPage");
+                Navigator.pushNamed(context, "/redPage");
               },
               child: const Text(
                 "Isimlendirilmis Route",
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/ogrenciListesi", arguments: 60);
+              },
+              child: const Text(
+                "Liste Olustur",
               ),
             ),
           ],
