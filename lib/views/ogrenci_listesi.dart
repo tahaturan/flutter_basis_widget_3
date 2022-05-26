@@ -22,6 +22,10 @@ class OgrenciListesi extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           var oankiOgrenci = tumOgrenciler[index];
           return ListTile(
+            onTap: () {
+              Navigator.pushNamed(context, "/ogrenciDetay",
+                  arguments: oankiOgrenci);
+            },
             leading: CircleAvatar(
               child: Text(oankiOgrenci.id.toString()),
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basis_widget_3/views/my_home_page.dart';
+import 'package:flutter_basis_widget_3/views/ogrenci_detay.dart';
 import 'package:flutter_basis_widget_3/views/ogrenci_listesi.dart';
 import 'package:flutter_basis_widget_3/views/redpage.dart';
 
@@ -14,6 +15,10 @@ class RouteGenerator {
         return rotaOlustur(RedPage(), settings);
       case "/ogrenciListesi":
         return rotaOlustur(const OgrenciListesi(), settings);
+      case "/ogrenciDetay":
+        var parametredekiOgrenci = settings.arguments as Ogrenci;
+        return rotaOlustur(
+            OgreciDetay(secilenOgrenci: parametredekiOgrenci), settings);
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(
