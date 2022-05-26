@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basis_widget_3/views/my_home_page.dart';
+import 'package:flutter_basis_widget_3/views/redpage.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 void main() {
@@ -36,6 +37,9 @@ class MyApp extends StatelessWidget {
       ),
       home: const MyHomePage(),
       builder: EasyLoading.init(),
+      routes: {
+        "redPage": (context) => RedPage(),
+      },
     );
   }
 }

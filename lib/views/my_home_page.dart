@@ -64,6 +64,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 "Then Kullanarak Veriyi alma",
               ),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "redPage");
+              },
+              child: const Text(
+                "Isimlendirilmis Route",
+              ),
+            ),
           ],
         ),
       ),
