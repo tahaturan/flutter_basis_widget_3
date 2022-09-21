@@ -22,5 +22,7 @@
 <img src="assets/images/sliverlist.gif" height="300">
 <hr>
 
-
+### Bildirim Gosterme
+<img src="assets/images/bildirim.gif" height="300">
+<hr>
 
