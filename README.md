@@ -26,3 +26,7 @@
 <img src="assets/images/bildirim.gif" height="300">
 <hr>
 
+### Timer Kullanimi
+<img src="assets/images/timer.gif" height="300">
+<hr>
+

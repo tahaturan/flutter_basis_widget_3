@@ -5,6 +5,7 @@ import 'package:flutter_basis_widget_3/views/custom_scroll_ve_slivers.dart';
 import 'package:flutter_basis_widget_3/views/gridview_kullanimi.dart';
 import 'package:flutter_basis_widget_3/views/listview_kullanimi.dart';
 import 'package:flutter_basis_widget_3/views/redpage.dart';
+import 'package:flutter_basis_widget_3/views/timer_kullanimi.dart';
 import 'package:flutter_basis_widget_3/widgets/sayfa_gecis_button.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
@@ -136,6 +137,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 "Bildirim Olustur",
               ),
             ),
+            SayfaGecisButton(
+                isim: "Timer Kullanimi", sayfa: const TimerKullanimi()),
           ],
         ),
       ),
