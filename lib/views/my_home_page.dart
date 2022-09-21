@@ -136,12 +136,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 "Bildirim Olustur",
               ),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text(
-                "Bildirim Olustur (Gaecikmeli)",
-              ),
-            ),
           ],
         ),
       ),
